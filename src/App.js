@@ -96,7 +96,12 @@ const CourierLanding = () => {
         <div className="hero-content" data-aos="fade-up">
           <h1>Быстрая доставка по всему городу</h1>
           <p>Мы доставим ваш груз точно в срок. Работаем 24/7 для вашего удобства!</p>
-          <button className="btn-primary">Рассчитать стоимость</button>
+          <button
+  className="btn-primary"
+  onClick={() => document.getElementById('calculator-section').scrollIntoView({ behavior: 'smooth' })}
+>
+  Рассчитать стоимость
+</button>
         </div>
       </section>
 
@@ -115,32 +120,90 @@ const CourierLanding = () => {
         </div>
       </section>
 
-      <section className="calculator">
-        <div className="container">
-          <h2 className="section-title" data-aos="fade-up">Калькулятор стоимости</h2>
-          <div className="calc-container" data-aos="zoom-in">
-            <div className="calc-group">
-              <label>Вес груза (кг)</label>
-              <input type="number" value={calcData.weight} onChange={(e) => setCalcData({ ...calcData, weight: e.target.value })} min="1" />
-            </div>
-            <div className="calc-group">
-              <label>Расстояние (км)</label>
-              <input type="number" value={calcData.distance} onChange={(e) => setCalcData({ ...calcData, distance: e.target.value })} min="1" />
-            </div>
-            <div className="calc-group">
-              <label>Скорость доставки</label>
-              <select value={calcData.speed} onChange={(e) => setCalcData({ ...calcData, speed: e.target.value })}>
-                <option value="standard">Стандартная</option>
-                <option value="express">Экспресс (+50%)</option>
-              </select>
-            </div>
-            <div className="price-result">
-              <h3>Стоимость доставки:</h3>
-              <div className="price">{calculatePrice()} ₽</div>
-            </div>
-          </div>
-        </div>
-      </section>
+     <section id="calculator-section" className="calculator">
+  <div className="container">
+    <h2 className="section-title" data-aos="fade-up">Калькулятор стоимости</h2>
+    <div className="calc-container" data-aos="zoom-in">
+
+      {/* Тип груза */}
+      <div className="calc-group">
+        <label>Тип груза</label>
+        <select
+          value={calcData.type}
+          onChange={(e) => setCalcData({ ...calcData, type: e.target.value })}
+        >
+          <option value="documents">Документы</option>
+          <option value="parcels">Посылки</option>
+          <option value="cargo">Грузы</option>
+        </select>
+      </div>
+
+      {/* Размер */}
+      <div className="calc-group">
+        <label>Размер</label>
+        <select
+          value={calcData.size}
+          onChange={(e) => setCalcData({ ...calcData, size: e.target.value })}
+        >
+          <option value="small">Маленький</option>
+          <option value="medium">Средний</option>
+          <option value="large">Большой</option>
+        </select>
+      </div>
+
+      {/* Количество */}
+      <div className="calc-group">
+        <label>Количество</label>
+        <input
+          type="number"
+          min="1"
+          value={calcData.quantity}
+          onChange={(e) => setCalcData({ ...calcData, quantity: e.target.value })}
+        />
+      </div>
+
+      {/* Вес груза */}
+      <div className="calc-group">
+        <label>Вес груза (кг)</label>
+        <input
+          type="number"
+          min="1"
+          value={calcData.weight}
+          onChange={(e) => setCalcData({ ...calcData, weight: e.target.value })}
+        />
+      </div>
+
+      {/* Расстояние */}
+      <div className="calc-group">
+        <label>Расстояние (км)</label>
+        <input
+          type="number"
+          min="1"
+          value={calcData.distance}
+          onChange={(e) => setCalcData({ ...calcData, distance: e.target.value })}
+        />
+      </div>
+
+      {/* Скорость */}
+      <div className="calc-group">
+        <label>Скорость доставки</label>
+        <select
+          value={calcData.speed}
+          onChange={(e) => setCalcData({ ...calcData, speed: e.target.value })}
+        >
+          <option value="standard">Стандартная</option>
+          <option value="express">Экспресс (+50%)</option>
+        </select>
+      </div>
+
+      {/* Итоговая стоимость */}
+      <div className="price-result">
+        <h3>Стоимость доставки:</h3>
+        <div className="price">{calculatePrice()} ₽</div>
+      </div>
+    </div>
+  </div>
+</section>
 
       <section className="reviews">
         <div className="container">
