@@ -1,0 +1,116 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+/* Главное исправление */
+.modal-content {
+  background: #fff;
+  border-radius: 20px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  /* НЕ ВЫЛЕЗАЕТ */
+  overflow-y: auto;
+  /* ПРОКРУТКА ВНУТРИ */
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Убираем скроллбар на мобилках красиво */
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.modal-close {
+  position: sticky;
+  top: 0;
+  float: right;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-title {
+  text-align: center;
+  margin-bottom: 1.2rem;
+  font-size: 1.7rem;
+}
+
+.order-group {
+  margin-bottom: 0.9rem;
+}
+
+.order-group label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.order-group input,
+.order-group select {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.order-total {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  margin: 1.2rem 0;
+}
+
+.total-price {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.btn-order {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-order-open {
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Мобильная оптимизация */
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 1.2rem;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+  }
+}
