@@ -498,7 +498,7 @@ const CourierLanding = () => {
       `}</style>
 
       <header className="header">
-        <div className="logo">⚡ FastDeliver</div>
+        <div className="logo"><img src="/logo.png" /></div>
         <nav className="nav">
           <a onClick={() => document.getElementById('home').scrollIntoView({ behavior: 'smooth' })}>Главная</a>
           <a onClick={() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' })}>Услуги</a>
