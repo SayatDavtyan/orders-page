@@ -83,10 +83,17 @@ const CourierLanding = () => {
           align-items: center;
         }
         
-        .logo {
-          font-size: 1.8rem;
-          font-weight: bold;
-        }
+       .logo {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
         
         .nav {
           display: flex;
@@ -415,6 +422,7 @@ const CourierLanding = () => {
           position: relative;
           box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
+        
         
         .modal-close {
           position: absolute;
